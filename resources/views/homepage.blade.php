@@ -69,17 +69,27 @@
 <div class="happy">
     <h1>Happy Birthday to...</h1>
     <div class="happy-items">
+        @php
+            $currentMonth = now()->month; 
+        @endphp
+    
         @if($birthdays->isEmpty())
             <p>No birthdays found.</p>
         @else
             @foreach ($birthdays as $birthday)
-                <div class="happy-item">
-                    <h3>{{ $birthday->name }}</h3>
-                    <p>{{ $birthday->jurusan }} {{ $birthday->angkatan }} | {{ \Carbon\Carbon::parse($birthday->tanggal_lahir)->format('F d') }}</p>
-                </div>
+                @php
+                    $birthMonth = \Carbon\Carbon::parse($birthday->tanggal_lahir)->month;
+                @endphp
+                
+                @if($birthMonth == $currentMonth)
+                    <div class="happy-item">
+                        <h3>{{ $birthday->name }}</h3>
+                        <p>{{ $birthday->jurusan }} {{ $birthday->angkatan }} | {{ \Carbon\Carbon::parse($birthday->tanggal_lahir)->format('F d') }}</p>
+                    </div>
+                @endif
             @endforeach
         @endif
-    </div>
+    </div>    
 </div>
 
 

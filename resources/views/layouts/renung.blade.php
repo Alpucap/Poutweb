@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>POUT - @yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('css/homepage-app.css') }}">
-    <script src="{{ asset('js/homepage-app.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/renungan-app.css') }}">
+    <script src="{{ asset('js/renungan-app.js') }}"></script>
     <link rel="icon" href="{{ asset('img\POUT.png') }}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{ asset('img\POUT.png') }}" type="image/x-icon"/>
 </head>

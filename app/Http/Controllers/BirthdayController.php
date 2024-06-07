@@ -6,11 +6,9 @@ use App\Models\Birthday;
 
 class BirthdayController extends Controller
 {
-    public function showBirthdays()
+    public function index()
     {
         $birthdays = Birthday::all();
-        \Log::debug('Birthdays:', $birthdays->toArray());
-        dd($birthdays);
         return view('homepage', compact('birthdays'));
     }
 }
