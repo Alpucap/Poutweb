@@ -64,6 +64,17 @@
         .carousel-control.next {
             right: 10px;
         }
+
+        @media screen and (max-width: 768px) {
+            .carousel-item .overlay {
+                font-size: 48px;
+                font-weight: 300;
+                letter-spacing: 2px;
+                text-align: center;
+                font-family: 'Sacramento', cursive;
+            }
+        }
+        
     </style>
 </head>
 <body>
