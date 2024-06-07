@@ -69,12 +69,16 @@
 <div class="happy">
     <h1>Happy Birthday to...</h1>
     <div class="happy-items">
-        @foreach ($birthdays as $birthday)
-            <div class="happy-item">
-                <h3>{{ $birthday->name }}</h3>
-                <p>{{ $birthday->jurusan }} {{ $birthday->angkatan }} | {{ \Carbon\Carbon::parse($birthday->tanggal_lahir)->format('F d') }}</p>
-            </div>
-        @endforeach
+        @if($birthdays->isEmpty())
+            <p>No birthdays found.</p>
+        @else
+            @foreach ($birthdays as $birthday)
+                <div class="happy-item">
+                    <h3>{{ $birthday->name }}</h3>
+                    <p>{{ $birthday->jurusan }} {{ $birthday->angkatan }} | {{ \Carbon\Carbon::parse($birthday->tanggal_lahir)->format('F d') }}</p>
+                </div>
+            @endforeach
+        @endif
     </div>
 </div>
 
