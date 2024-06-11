@@ -1,18 +1,20 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BirthdayController;
-use App\Http\Controllers\AdminController;
 
-Route::get('/', [BirthdayController::class, 'index']);
-
-Route::get('/renungan', function () {
-    return view('renungan');
+Route::get('/', function () {
+    return view('welcome');
 });
 
-//admin storing
-Route::get('/admin', function () {
-    return view('admin');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+require __DIR__.'/auth.php';

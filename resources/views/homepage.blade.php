@@ -96,11 +96,13 @@
 <!--Counseling -->
 <div class="counseling">
     <div class="counseling-item">
-        <img src="img\Worship1.jpg" alt="">
-        <div class="text-overlay">
-            <h1>Chat with us?</h1>
-            <button>Click here!</button>
-        </div>
+        <a href="{{ route('counseling') }}">
+            <img src="img\Worship1.jpg" alt="">
+            <div class="text-overlay">
+                <h1>Chat with us?</h1>
+                <button>Click here!</button>
+            </div>
+        </a>
     </div>
 </div>
 

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
 /* General Styles */
 * {
@@ -31,4 +32,249 @@ body {
 }
 ::selection {
     color: #4682b4;
+}
+
+/* RENUNGAN */
+.Renungan h1 {
+    font-size: 5rem;
+    font-weight: 500;
+    font-family: 'Sacramento', cursive;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #ebeeec;
+}
+
+.Renungan {
+    margin: 10px;
+}
+
+.Renungan-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    gap: 10px;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+.Renungan-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 7; 
+    max-width: 70%; 
+}
+
+.Renungan-items a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Renungan-item {
+    position: relative;
+    overflow: hidden;
+    background-color: #140a0a;
+    color: #ebeeec;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #ebeeec;
+    transition: color 0.7s ease, border 0.7s ease;
+    margin: 5px;
+    flex-grow: 1;
+    min-width: 300px;
+}
+
+.Renungan-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ebeeec;
+    transition: left 0.8s ease;
+    z-index: 0;
+}
+
+.Renungan-item:hover::before {
+    left: 0;
+}
+
+.Renungan-item:hover {
+    color: #140a0a;
+    border: 2px solid transparent;
+}
+
+.Renungan-item > * {
+    position: relative;
+    z-index: 1;
+}
+
+.Renungan-News {
+    background-color: #140a0a;
+    margin: 10px;
+    border-radius: 4px;
+    color: #ebeeec;
+    text-align: center;
+    flex: 3; 
+    max-width: 30%; 
+    border: 2px solid #ebeeec;
+    justify-content: space-between; 
+}
+
+.Renungan-News-item {
+    background-color: #140a0a; 
+    border-radius: 4px;
+    padding: 10px; 
+    color: #ebeeec;
+    transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+.Renungan-News-item:hover {
+    background-color: #ebeeec; 
+    color:#140a0a;
+    transition: background-color 0.5s ease, color 0.5s ease; 
+}
+
+.Renungan-News-item img {
+    width: 100%; 
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.Renungan-News-item h3 {
+    font-size: 1.5rem; 
+    font-weight: bold; 
+}
+
+.Renungan-News-item p {
+    font-size: 1rem;
+}
+
+/* Search Bar */
+#searchInput {
+    padding: 10px;
+    border: 2px solid #b1b1b1;
+    border-radius: 5px;
+    margin: 0 5px;
+    width: auto;
+}
+
+#searchInput:focus {
+    border-color: #4682b4;
+}
+
+#searchButton {
+    padding: 10px 20px;
+    background-color: #3c6c93;
+    color: #ebeeec;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+}
+
+/*Comments */
+.comments {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 8px;
+}
+
+.comment {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ebeeec;
+}
+
+.comment p {
+    margin: 5px 0;
+    color:#140a0a;
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+.comment-form {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ebeeec;
+    border-radius: 8px;
+}
+
+.comment-form div {
+    margin-bottom: 10px;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ced0cf;
+    border-radius: 4px;
+}
+
+
+.comment-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #ebeeec;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #140a0a;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #ebeeec;
+    width: 80%;
+    border-radius: 10px;
+    color: #ebeeec;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
