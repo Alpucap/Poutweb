@@ -7,6 +7,11 @@ use App\Models\Birthday; // Assuming Birthday model is in the App\Models namespa
 
 class AdminController extends Controller
 {
+
+    public function index()
+    {
+        return view('admin');
+    }
     public function store(Request $request)
     {
         // Validasi input
