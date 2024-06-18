@@ -1,33 +1,40 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\POUTStructure;
+use Illuminate\Support\Facades\Log;
 
 class POUTStructureController extends Controller
 {
     public function index()
     {
         try {
-            \DB::enableQueryLog();
+            // Enable query logging
+            DB::enableQueryLog();
 
-            $structures = POUTStructure::orderBy('role', 'asc')->get();
-            
-            // dd(\DB::getQueryLog());
+            // Fetch structures ordered by role using raw SQL
+            $structures = DB::select("SELECT * FROM POUTStructure ORDER BY role ASC");
 
-            dd($structures);
-
+            // Sort fetched structures
             $sortedStructures = $this->sortStructures($structures);
 
+            // Return view with sorted structures
             return view('servant', compact('sortedStructures'));
+
         } catch (\Exception $e) {
-            \Log::error('Error fetching data from POUTStructure: ' . $e->getMessage());
-            return response()->view('error', [], 500); // 500 is the HTTP status code for internal server error
+            // Log error message with detailed exception
+            Log::error('Error fetching data from POUTStructure: ' . $e->getMessage());
+
+            // Return an error response view with HTTP status code 500 (Internal Server Error)
+            return response()->view('error', [], 500);
         }
     }
 
-
     private function sortStructures($structures)
     {
+        // Define sorting categories
         $sorted = [
             'Ketum' => [],
             'Waketum' => [],
@@ -48,6 +55,7 @@ class POUTStructureController extends Controller
             'Anggota Divisi Praise & Worship' => [],
         ];
 
+        // Populate sorted array based on structure role
         foreach ($structures as $structure) {
             $sorted[$structure->role][] = $structure;
         }

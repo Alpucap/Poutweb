@@ -48,5 +48,14 @@
             </div>
         </form>
     </div>
+
+    @include('loader')
+
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+    </script>
+
 </body>
 </html>

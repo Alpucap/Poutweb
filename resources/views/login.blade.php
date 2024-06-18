@@ -29,6 +29,14 @@
             <p>Don't have an account? <a href="{{ route('register') }}">Register</a></p>
         </div>
     </div>
+    
+    @include('loader')
+
+    <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
 

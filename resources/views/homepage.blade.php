@@ -99,11 +99,19 @@
         <a href="{{ route('counseling') }}">
             <img src="img\Worship1.jpg" alt="">
             <div class="text-overlay">
-                <h1>Chat with us?</h1>
-                <button>Click here!</button>
+                <h1>Do you need help?</h1>
+                <button>Contact Us!</button>
             </div>
         </a>
     </div>
 </div>
+
+@include('loader')
+
+<script>
+    window.addEventListener('load', function() {
+        document.getElementById('loader').style.display = 'none';
+    });
+</script>
 
 @endsection
