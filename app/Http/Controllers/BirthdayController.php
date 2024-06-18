@@ -1,8 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Birthday;
+use Illuminate\Support\Facades\View;
 
 class BirthdayController extends Controller
 {
@@ -12,3 +12,4 @@ class BirthdayController extends Controller
         return view('homepage', compact('birthdays'));
     }
 }
+

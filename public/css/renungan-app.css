@@ -203,41 +203,60 @@ body {
 }
 
 .comment-form {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #ebeeec;
+    max-width: auto;
+    margin: 0;
+    margin: 10px;
+    padding: 1.5rem;
+    border: 1px solid #ebeeec;
     border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.comment-form div {
-    margin-bottom: 10px;
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
-.comment-form label {
+label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #ebeeec;
 }
 
-.comment-form input,
-.comment-form textarea {
+input[type="text"],
+textarea {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ced0cf;
+    padding: 0.75rem;
+    border: 1px solid #ebeeec;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
+textarea {
+    height: 100px;
+    resize: vertical;
+}
 
-.comment-form button {
-    padding: 10px 15px;
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #ebeeec;
     background-color: #007bff;
     border: none;
     border-radius: 4px;
-    color: #ebeeec;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.comment-form button:hover {
+.submit-button:hover {
     background-color: #0056b3;
 }
 

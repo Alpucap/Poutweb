@@ -1,20 +1,59 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BirthdayController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\RenunganController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\POUTStructureController;
+use App\Http\Controllers\CounselingController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Main Routes
+Route::get('/', [BirthdayController::class, 'index'])->name('home');
+Route::get('/homepage', [BirthdayController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Authentication Routes
+Route::get('signin', [AuthController::class, 'showForm'])->name('signin');
+Route::post('register', [AuthController::class, 'register'])->name('register');
 
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login/google', [LoginController::class, 'redirectToGoogle'])->name('login.google');
+Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+
+// Profile Routes
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// Renungan Routes
+Route::get('/renungan', [RenunganController::class, 'index'])->name('renungan.index');
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
+Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update')->middleware('web');
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+// Servant Routes
+Route::get('/servant', [POUTStructureController::class, 'index']);
+
+// Counseling Routes
+Route::get('/counseling', [CounselingController::class, 'showForm'])->name('counseling');
+Route::post('/counseling/submit', [CounselingController::class, 'submit'])->name('counseling.submit');
+
+// Admin Routes
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+Route::post('/admin/storeMember', [AdminController::class, 'storeMember'])->name('admin.storeMember');
+Route::get('/admin/editMember/{id}', [AdminController::class, 'editMember'])->name('admin.editMember');
+Route::post('/admin/updateMember/{id}', [AdminController::class, 'updateMember'])->name('admin.updateMember');

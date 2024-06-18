@@ -37,9 +37,9 @@ body {
 
 .counseling-container {
     max-width: 800px;
+    min-height: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -47,13 +47,13 @@ body {
 .counseling-container h1 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #333;
+    color: #ebeeec;
 }
 
 .counseling-container p {
     font-size: 1em;
     margin-bottom: 20px;
-    color: #666;
+    color: #ebeeec;
 }
 
 .counseling-form {
@@ -65,17 +65,12 @@ body {
     margin-bottom: 15px;
 }
 
-.counseling-form label {
-    font-size: 1em;
-    margin-bottom: 5px;
-    color: #555;
-}
-
 .counseling-form textarea {
     width: 100%;
-    padding: 10px;
+    min-height: 200px;
+    padding: 15px;
     font-size: 1em;
-    border: 1px solid #ddd;
+    border: 1px solid #ebeeec;
     border-radius: 4px;
     resize: vertical;
 }
@@ -89,10 +84,13 @@ body {
 }
 
 .counseling-form .btn-primary {
-    background-color: #007bff;
-    color: white;
+    background-color: #ebeeec;
+    color: #140a0a;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .counseling-form .btn-primary:hover {
-    background-color: #0056b3;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #140a0a;
+    color: #ebeeec;
 }

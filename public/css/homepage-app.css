@@ -35,6 +35,7 @@ body {
     color: #4682b4;
 }
 
+
 /*INTRO*/
 .intro{
     margin: 0px;
@@ -363,10 +364,10 @@ body {
 }
 
 .counseling-item .text-overlay button {
-    background-color: transparent; 
-    border: 2px solid #ebeeec; 
+    background-color: #140a0a; 
+    border: none;
     color: #ebeeec; 
-    padding: 10px 10px;
+    padding: 10px 20px;
     font-size: 1rem; 
     font-weight: 300;
     cursor: pointer;

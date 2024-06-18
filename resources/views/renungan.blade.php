@@ -30,6 +30,15 @@
     </div>
 
     <h1>Please Leave a Comment</h1>
+    <!-- Comment form -->
+    <form action="{{ route('comments.store') }}" method="POST" class="comment-form">
+        @csrf
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Post Comment</button>
+    </form>    
     <!-- Display comments -->
     <div class="comments">
         @foreach($comments as $comment)
@@ -48,19 +57,6 @@
             </div>
         @endforeach
     </div>
-    <!-- Comment form -->
-    <form action="{{ route('comments.store') }}" method="POST">
-        @csrf
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" required></textarea>
-        </div>
-        <button type="submit">Post Comment</button>
-    </form>
 </div>
 
 <!-- Edit comment modal -->
@@ -73,10 +69,6 @@
             @method('PUT')
             <input type="hidden" id="editCommentId" name="id">
             <div>
-                <label for="editName">Name:</label>
-                <input type="text" id="editName" name="name" required>
-            </div>
-            <div>
                 <label for="editComment">Comment:</label>
                 <textarea id="editComment" name="comment" required></textarea>
             </div>
@@ -85,5 +77,12 @@
     </div>
 </div>
 
-@endsection
+@include('loader')
 
+<script>
+    window.addEventListener('load', function() {
+        document.getElementById('loader').style.display = 'none';
+    });
+</script>
+
+@endsection

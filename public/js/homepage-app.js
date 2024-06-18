@@ -10,3 +10,5 @@ window.addEventListener("blur", () => {
 window.addEventListener("focus", () => {
     document.title = "POUT";
 });
+
+
