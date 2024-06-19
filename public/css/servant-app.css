@@ -34,6 +34,7 @@ body {
     color: #4682b4;
 }
 
+/* POUT Structure */
 .Servants {
     text-align: center;
     margin: 0 auto;
@@ -55,14 +56,89 @@ body {
     font-size: 24px;
 }
 
-.cards-container {
+.Servants-item .cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 
-.member {
+.Servants-item .member {
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    flex: 0 1 calc(20% - 20px);
+    box-sizing: border-box;
+    border: 2px solid #ebeeec;
+}
+
+.Servants-item .member img {
+    border-radius: 8px;
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.Servants-item .member h3 {
+    margin: 10px 0;
+}
+
+.Servants-item .member p {
+    margin: 5px 0;
+}
+
+@media (max-width: 1200px) {
+    .Servants-item .member {
+        flex: 0 1 calc(25% - 20px);
+    }
+}
+
+@media (max-width: 992px) {
+    .Servants-item .member {
+        flex: 0 1 calc(33.33% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .Servants-item .member {
+        flex: 0 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .Servants-item .member {
+        flex: 0 1 calc(100% - 20px);
+    }
+}
+
+.KetumWaketum, .BPHI, .BPH {
+    margin-bottom: 40px;
+}
+
+/* PD PJ */
+.PDServants, .PJServants {
+    margin-bottom: 40px;
+}
+
+.PDServants h2, .PJServants h2 {
+    margin-bottom: 20px;
+    font-family: 'Sacramento', cursive;
+    font-size: 24px;
+}
+
+.PDServants .cards-container, .PJServants .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.PDServants .member, .PJServants .member {
     background-color: transparent;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -74,7 +150,7 @@ body {
     box-sizing: border-box;
 }
 
-.member img {
+.PDServants .member img, .PJServants .member img {
     border-radius: 8px;
     height: 120px;
     width: 120px;
@@ -82,38 +158,35 @@ body {
     margin-bottom: 10px;
 }
 
-.member h3 {
+.PDServants .member h3, .PJServants .member h3 {
     margin: 10px 0;
 }
 
-.member p {
+.PDServants .member p, .PJServants .member p {
     margin: 5px 0;
 }
 
 @media (max-width: 1200px) {
-    .member {
+    .PDServants .member, .PJServants .member {
         flex: 0 1 calc(25% - 20px);
     }
 }
 
 @media (max-width: 992px) {
-    .member {
+    .PDServants .member, .PJServants .member {
         flex: 0 1 calc(33.33% - 20px);
     }
 }
 
 @media (max-width: 768px) {
-    .member {
+    .PDServants .member, .PJServants .member {
         flex: 0 1 calc(50% - 20px);
     }
 }
 
 @media (max-width: 576px) {
-    .member {
+    .PDServants .member, .PJServants .member {
         flex: 0 1 calc(100% - 20px);
     }
 }
 
-.KetumWaketum, .BPHI, .BPH {
-    margin-bottom: 40px;
-}

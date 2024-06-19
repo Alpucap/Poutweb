@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="css/signin-app.css">
 </head>
 <body>
@@ -39,12 +39,6 @@
             <div class="button-group">
                 <button type="submit" class="register-button">Register</button>
                 <button type="button" class="login-button" onclick="window.location.href='{{ route('login') }}'">Log in</button>
-            </div>
-            <div class="google-login">
-                <p>or log in with</p>
-                <button type="button" class="google-button" onclick="window.location.href='{{ route('login.google') }}'">
-                    <img src="google-logo.png" alt="Google Logo"> Google
-                </button>
             </div>
         </form>
     </div>

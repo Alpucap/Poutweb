@@ -1,4 +1,3 @@
-
 <style>
     .loader {
         position: fixed;
@@ -6,18 +5,18 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(34, 34, 34, 0.8); 
+        background-color: rgba(17, 17, 17, 0.879);
         display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 9999; 
+        z-index: 9999;
     }
 
     .loader span {
         font-size: 24px;
-        margin: 0 5px; 
+        margin: 0 5px;
         opacity: 0;
-        animation: fadeInOut 2s infinite; 
+        animation: fadeInOut 2s infinite;
     }
 
     .loader span:nth-child(1) { animation-delay: 0s; }

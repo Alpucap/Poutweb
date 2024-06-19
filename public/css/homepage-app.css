@@ -256,9 +256,8 @@ body {
     width: 60%;
     height: 60%;
     object-fit: cover;
-    filter: brightness(30%);
 }
-  
+
 .News-small {
     flex-basis: 40%;
     display: flex;
@@ -277,7 +276,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(30%);
 }
   
 .News-tiny {
@@ -290,9 +288,30 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(30%);
 }
 
+.join-button {
+    display: inline-block;
+    background-color: #ebeeec; 
+    color: #1e2129;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; 
+    text-align: center;
+    padding: 10px;
+    line-height: 1;
+    transition: 0.5s color ease, 0.4s background-color ease;
+}
+.join-button:hover{
+    background-color: #1e2129;
+    color:#ebeeec;
+    transition: 0.5s color ease, 0.4s background-color ease;
+}
+.join-text {
+    display: inline-block;
+    writing-mode: vertical-rl; 
+    transform: rotate(180deg); 
+}
 
 /* Happy */
 .happy{
@@ -364,7 +383,7 @@ body {
 }
 
 .counseling-item .text-overlay button {
-    background-color: #140a0a; 
+    background-color: #1e2129; 
     border: none;
     color: #ebeeec; 
     padding: 10px 20px;
@@ -378,7 +397,7 @@ body {
 .counseling-item .text-overlay button:hover {
     transition: 0.7s color ease, 0.6s background-color ease;
     background-color: #ebeeec; 
-    color: #140a0a; 
+    color: #1e2129; 
 }
 
 

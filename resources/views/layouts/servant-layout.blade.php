@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         @include('partials.navbar')
+        @include('partials.servant-navbar')
         @yield('content')
         @include('partials.footer')
     </div>

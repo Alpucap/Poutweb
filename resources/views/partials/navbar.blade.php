@@ -11,7 +11,7 @@
                 <img src="img\POUT.png" alt="Profile">
             </a>
         @else
-            <a href="/signin" onclick="showalerts()" class="{{ Request::is('profile') ? 'active' : '' }}">
+            <a href="/login" onclick="showalerts()" class="{{ Request::is('profile') ? 'active' : '' }}">
                 <img src="img\POUT.png" alt="Profile">
             </a>
         @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\POUTStructure;
+use App\Models\Servant;
 use Illuminate\Support\Facades\Log;
 
 class POUTStructureController extends Controller
@@ -20,12 +21,19 @@ class POUTStructureController extends Controller
             // Sort fetched structures
             $sortedStructures = $this->sortStructures($structures);
 
-            // Return view with sorted structures
-            return view('servant', compact('sortedStructures'));
+            // Fetch PD and PJ Servants
+            $pdServants = Servant::where('role', 'PD')->get();
+            $pjServants = Servant::where('role', 'PJ')->get();
+
+            Log::info('PD Servants:', $pdServants->toArray());
+            Log::info('PJ Servants:', $pjServants->toArray());
+
+            // Return view with sorted structures and PD/PJ Servants
+            return view('servant', compact('sortedStructures', 'pdServants', 'pjServants'));
 
         } catch (\Exception $e) {
             // Log error message with detailed exception
-            Log::error('Error fetching data from POUTStructure: ' . $e->getMessage());
+            Log::error('Error fetching data: ' . $e->getMessage());
 
             // Return an error response view with HTTP status code 500 (Internal Server Error)
             return response()->view('error', [], 500);

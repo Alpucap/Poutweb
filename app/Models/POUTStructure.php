@@ -11,5 +11,7 @@ class POUTStructure extends Model
 
     protected $table = 'POUTStructure';
     protected $fillable = ['role', 'name', 'photo', 'major', 'batch'];
+    
 }
+
 

@@ -1,0 +1,41 @@
+/* Navbar Styles */
+servant-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    gap: 50px;
+}
+
+servant-nav img{
+    height: 40px;
+    width: 40px;
+}
+servant-nav img:hover{
+    filter: invert(100%);
+}
+
+servant-nav a {
+    text-decoration: none;
+    color: #ebeeec;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: transparent;
+}
+
+servant-nav a:hover {
+    background-color: #ebeeec;
+    color: #140a0a;
+    transition: 0.7s color ease, 0.6s background-color ease;
+}
+
+servant-nav a:active {
+    color: #4682b4;
+    transition: 0.5s color ease;
+}
+
+@media screen and (max-width: 768px) {
+    servant-nav {
+        gap: 20px;
+    }
+}
