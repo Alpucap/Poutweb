@@ -3,6 +3,7 @@
 @section('title', 'Admin')
 
 @section('content')
+    {{-- Birthday --}}
     <div class="birthday-form">
         <h2>Add Birthday</h2>
         <form method="POST" action="{{ route('admin.store') }}">
@@ -27,6 +28,7 @@
         </form>
     </div>
 
+    {{-- POUT Structure --}}
     <div class="member-form">
         <h2>Add New Member</h2>
         <form method="POST" action="{{ route('admin.storeMember') }}">
@@ -40,32 +42,19 @@
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="jurusan">Jurusan:</label>
-                <input type="text" id="jurusan" name="jurusan" required>
+                <label for="major">Major:</label>
+                <input type="text" id="major" name="major" required>
             </div>
             <div class="form-group">
-                <label for="angkatan">Angkatan:</label>
-                <input type="text" id="angkatan" name="angkatan" required>
+                <label for="batch">Batch:</label>
+                <input type="text" id="batch" name="batch" required>
             </div>
             <div class="form-group">
-                <label for="photo">Photo URL:</label>
+                <label for="photo">Photo Path:</label>
                 <input type="text" id="photo" name="photo" required>
             </div>
             <button type="submit">Add Member</button>
         </form>
     </div>
 
-    <div class="update-member-form">
-        <h2>Update Member</h2>
-        @foreach($members as $member)
-            <div class="member">
-                <h4>{{ $member->role }}</h4>
-                <img src="{{ $member->photo }}" alt="{{ $member->name }}">
-                <h3>{{ $member->name }}</h3>
-                <p>{{ $member->jurusan }} | {{ $member->angkatan }}</p>
-                <!-- Add edit button or link -->
-                <a href="{{ route('admin.editMember', $member->id) }}">Edit</a>
-            </div>
-        @endforeach
-    </div>
 @endsection

@@ -50,12 +50,15 @@
     </div>
     <div class="News-items">
         <div class="News-big">
-            <img src="img\Worship1.jpg" alt="">
+            <img src="img\News-POUT.png" alt="">
+            <button class="join-button">
+                <span class="join-text">CONTACT US</span>
+            </button>
             <div class="News-small">
                 <img src="img\Worship2.jpg" alt="">
                 <div class="News-tiny">
-                    <img src="img\Worship1.jpg" alt="">
-                    <img src="img\Worship2.jpg" alt="">
+                    <img src="img\News-PD.png" alt="">
+                    <img src="img\News-PJ.png" alt="">
                 </div>
             </div>
         </div>

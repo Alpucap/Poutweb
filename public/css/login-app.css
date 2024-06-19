@@ -1,0 +1,115 @@
+/* Import the Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #140a0a;
+    color: #ebeeec;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    width: 0px; 
+    display: none; 
+}
+::selection {
+    color: #4682b4;
+}
+
+/* FORM */
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 300px;
+    text-align: center;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ebeeec;
+}
+
+.form-container input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ebeeec;
+}
+
+.form-container input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-button {
+    background-color: #1E90FF;
+    color: white;
+}
+
+.login-button:hover {
+    background-color: #1C86EE;
+}
+
+.forgot-password, .register-link {
+    margin-top: 10px;
+}
+
+.forgot-password a, .register-link a {
+    color: #ebeeec;
+    text-decoration: none;
+}
+
+.forgot-password a:hover, .register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Additional Styling */
+.form-container input::placeholder {
+    color: #ebeeec;
+    opacity: 0.7;
+}
+
+.form-container input:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Birthday;
-use App\Models\POUTStructure; // Assuming POUTStructure model is in the App\Models namespace
+use App\Models\POUTStructure;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -17,6 +18,7 @@ class AdminController extends Controller
         return view('admin.index', compact('members'));
     }
 
+    // BIRTHDAY
     public function store(Request $request)
     {
         // Validate input
@@ -27,72 +29,59 @@ class AdminController extends Controller
             'tanggal_lahir' => 'required|date',
         ]);
 
-        // Store birthday data in the database
-        Birthday::create([
-            'name' => $request->name,
-            'jurusan' => $request->jurusan,
-            'angkatan' => $request->angkatan,
-            'tanggal_lahir' => $request->tanggal_lahir,
-        ]);
+        try {
+            // Store birthday data in the database
+            Birthday::create([
+                'name' => $request->name,
+                'jurusan' => $request->jurusan,
+                'angkatan' => $request->angkatan,
+                'tanggal_lahir' => $request->tanggal_lahir,
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error creating birthday:', ['error' => $e->getMessage()]);
+            return redirect()->back()->with('error', 'Failed to add birthday.');
+        }
 
         return redirect('/admin')->with('success', 'Birthday added successfully.');
     }
 
+    // POUT Structure
     public function storeMember(Request $request)
     {
+        dd($request->all());
         // Validate input
         $request->validate([
             'role' => 'required|string',
             'name' => 'required|string',
-            'jurusan' => 'required|string',
-            'angkatan' => 'required|string',
-            'photo' => 'required|url',
-        ]);
+            'major' => 'required|string',
+            'batch' => 'required|integer',
+            'photo' => 'required|string',
+        ]);        
 
-        // Store member data in the POUTStructure model
-        POUTStructure::create([
-            'role' => $request->role,
-            'name' => $request->name,
-            'jurusan' => $request->jurusan,
-            'angkatan' => $request->angkatan,
-            'photo' => $request->photo,
-        ]);
-
-        return redirect()->back()->with('success', 'Member added successfully.');
-    }
-
-    public function editMember($id)
-    {
-        // Fetch member details from the database
-        $member = POUTStructure::findOrFail($id);
-
-        // Return view with member data for editing
-        return view('admin.edit-member', compact('member'));
-    }
-
-    public function updateMember(Request $request, $id)
-    {
-        // Validate input
-        $request->validate([
-            'role' => 'required|string',
-            'name' => 'required|string',
-            'jurusan' => 'required|string',
-            'angkatan' => 'required|string',
-            'photo' => 'required|url',
-        ]);
-
-        // Find the member by ID
-        $member = POUTStructure::findOrFail($id);
-
-        // Update member data
-        $member->update([
-            'role' => $request->role,
-            'name' => $request->name,
-            'jurusan' => $request->jurusan,
-            'angkatan' => $request->angkatan,
-            'photo' => $request->photo,
-        ]);
-
-        return redirect()->back()->with('success', 'Member updated successfully.');
+        try {
+            // Proses simpan data ke dalam model
+            $member = POUTStructure::create([
+                'role' => $request->role,
+                'name' => $request->name,
+                'major' => $request->major,
+                'batch' => $request->batch,
+                'photo' => $request->photo,
+            ]);
+            
+        
+            // Log info jika berhasil
+            Log::info('Member created:', $member->toArray());
+        
+            // Redirect dengan pesan sukses
+            return redirect()->back()->with('success', 'Member added successfully.');
+        
+        } catch (\Exception $e) {
+            // Tangkap kesalahan dan log pesan error
+            Log::error('Error creating member:', ['error' => $e->getMessage()]);
+        
+            // Redirect dengan pesan error
+            return redirect()->back()->with('error', 'Failed to add member.');
+        }
+        
     }
 }

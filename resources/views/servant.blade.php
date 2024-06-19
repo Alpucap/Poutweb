@@ -4,7 +4,42 @@
 
 @section('content')
 
-<div class="Servants">
+
+{{-- PD/PJ Servants --}}
+<div class="Servants" id="PDPJ">
+    <h1>PD / PJ Servants</h1>
+    <div class="Servants-item">
+        {{-- PJ Servants --}}
+        <div class="PJServants">
+            <h2>PJ Servants</h2>
+            <div class="cards-container">
+                @foreach($pjServants as $pj)
+                    <div class="member">
+                        <h3>{{ $pj->name }}</h3>
+                        <p>{{ $pj->major }} | {{ $pj->batch }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        {{-- PD Servants --}}
+        <div class="PDServants">
+            <h2>PD Servants</h2>
+            <div class="cards-container">
+                @foreach($pdServants as $pd)
+                    <div class="member">
+                        <h3>{{ $pd->name }}</h3>
+                        <p>{{ $pd->major }} | {{ $pd->batch }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{{-- Structure --}}
+<div class="Servants" id="STRUCTURE">
     <h1>The organizational structure at POUT</h1>
     <div class="Servants-item">
         <div class="KetumWaketum">
