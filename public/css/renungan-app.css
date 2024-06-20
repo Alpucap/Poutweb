@@ -249,7 +249,7 @@ textarea:focus {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     color: #ebeeec;
-    background-color: #007bff;
+    background-color: #1e2129;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -257,7 +257,7 @@ textarea:focus {
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #13151a;
 }
 
 .modal {
@@ -285,7 +285,7 @@ textarea:focus {
 }
 
 .close {
-    color: #aaa;
+    color: #cdcdcd;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -293,7 +293,7 @@ textarea:focus {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #140a0a;
     text-decoration: none;
     cursor: pointer;
 }
