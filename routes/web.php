@@ -48,8 +48,14 @@ Route::get('/servant/pdpj', [POUTStructureController::class, 'PDPJ']);
 
 
 // Counseling Routes
-Route::get('/counseling', [CounselingController::class, 'showForm'])->name('counseling');
-Route::post('/counseling/submit', [CounselingController::class, 'submit'])->name('counseling.submit');
+// Counseling Routes
+Route::middleware('auth')->group(function () {
+    Route::get('/counseling', [CounselingController::class, 'index'])->name('counseling');
+    Route::post('/counseling/submit', [CounselingController::class, 'submit'])->name('counseling.submit');
+    Route::post('/counseling/{id}/update', [CounselingController::class, 'update'])->name('counseling.update');
+    Route::delete('/counseling/{id}/delete', [CounselingController::class, 'delete'])->name('counseling.delete');
+});
+
 
 // Admin Routes
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
