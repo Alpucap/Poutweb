@@ -16,5 +16,6 @@ class Servant extends Model
         'batch',
         'role',
         'photo',
+        'serving_as',
     ];
 }

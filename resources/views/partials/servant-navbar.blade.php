@@ -4,8 +4,8 @@
 </head>
 <body>
     <servant-nav>
-        <a href="#PDPJ">PD PJ</a>
-        <a href="#EVENT">Events</a>
+        <a href="#PJ">PJ</a>
         <a href="#STRUCTURE">Structure</a>
+        <a href="#PD">PD</a>
     </servant-nav>
 </body>

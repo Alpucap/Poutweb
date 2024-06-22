@@ -7,34 +7,35 @@
 
 {{-- PD/PJ Servants --}}
 <div class="Servants" id="PDPJ">
-    <h1>PD / PJ Servants</h1>
+    <h1>PDPJ Servants</h1>
     <div class="Servants-item">
         {{-- PJ Servants --}}
-        <div class="PJServants">
+        <div class="PJServants" id="PJ">
             <h2>PJ Servants</h2>
             <div class="cards-container">
                 @foreach($pjServants as $pj)
                     <div class="member">
                         <h3>{{ $pj->name }}</h3>
                         <p>{{ $pj->major }} | {{ $pj->batch }}</p>
+                        <p>Serving as {{$pj->serving_as}}</p>
                     </div>
                 @endforeach
             </div>
         </div>
 
         {{-- PD Servants --}}
-        <div class="PDServants">
+        <div class="PDServants" id="PD">
             <h2>PD Servants</h2>
             <div class="cards-container">
                 @foreach($pdServants as $pd)
                     <div class="member">
                         <h3>{{ $pd->name }}</h3>
                         <p>{{ $pd->major }} | {{ $pd->batch }}</p>
+                        <p>Serving as {{$pd->serving_as}}</p>
                     </div>
                 @endforeach
             </div>
         </div>
-
     </div>
 </div>
 
@@ -64,6 +65,33 @@
             </div>
         </div>
         <div class="BPHI">
+            <h2>SEKBEN</h2>
+            <div class="cards-container">
+                @foreach($sortedStructures['Sekretaris 1'] as $sekre1)
+                    <div class="member">
+                        <h4>{{ $sekre1->role }}</h4>
+                        <img src="{{ $sekre1->photo }}" alt="{{ $sekre1->name }}">
+                        <h3>{{ $sekre1->name }}</h3>
+                        <p>{{ $sekre1->major }} | {{ $sekre1->batch }}</p>
+                    </div>
+                @endforeach
+                @foreach($sortedStructures['Sekretaris 2'] as $sekre2)
+                    <div class="member">
+                        <h4>{{ $sekre2->role }}</h4>
+                        <img src="{{ $sekre2->photo }}" alt="{{ $sekre2->name }}">
+                        <h3>{{ $sekre2->name }}</h3>
+                        <p>{{ $sekre2->major }} | {{ $sekre2->batch }}</p>
+                    </div>
+                @endforeach
+                @foreach($sortedStructures['Bendahara'] as $bendahara)
+                    <div class="member">
+                        <h4>{{ $bendahara->role }}</h4>
+                        <img src="{{ $bendahara->photo }}" alt="{{ $bendahara->name }}">
+                        <h3>{{ $bendahara->name }}</h3>
+                        <p>{{ $bendahara->major }} | {{ $bendahara->batch }}</p>
+                    </div>
+                @endforeach
+            </div>
             <h2>KOORDINATOR</h2>
             <div class="cards-container">
                 @foreach($sortedStructures['Koor Divisi Doa & Pemerhati'] as $koorDoa)
