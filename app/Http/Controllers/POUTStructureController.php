@@ -46,6 +46,9 @@ class POUTStructureController extends Controller
         $sorted = [
             'Ketum' => [],
             'Waketum' => [],
+            'Sekretaris 1' => [],
+            'Sekretaris 2' => [],
+            'Bendahara' => [],
             'Koor Divisi Doa & Pemerhati' => [],
             'WaKoor Divisi Doa & Pemerhati' => [],
             'Koor Divisi Acara' => [],
