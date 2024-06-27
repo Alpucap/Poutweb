@@ -68,12 +68,46 @@
     </div>
 </div>
 
-<!--Happy Birthday-->
+<!--Birthday-->
 <div class="happy">
     <h1>Happy Birthday to...</h1>
+    <div class="happy-attribute">
+        <div class="happy-filter">
+            <label for="jurusan-select">Filter by Jurusan:</label>
+            <select id="jurusan-select">
+                <option value="all">All</option>
+                <option value="FEB">FEB</option>
+                <option value="FTI">FTI</option>
+                <option value="FPsi">FPsi</option>
+                <option value="FT">FT</option>
+                <option value="FK">FK</option>
+                <option value="FH">FH</option>
+                <option value="FSRD">FSRD</option>
+                <option value="FIK">FIK</option>
+            </select>
+        </div>
+        <form method="get">
+            <input type="hidden" name="sort" value="name">
+            <button type="submit">Sort by Name &#9650;</button>
+        </form>
+        <form method="get">
+            <input type="hidden" name="sort" value="name_desc">
+            <button type="submit">Sort by Name &#9660;</button>
+        </form>
+    </div>
     <div class="happy-items">
         @php
             $currentMonth = now()->month; 
+           
+            // Determine sorting order based on 'sort' parameter
+            if (request()->has('sort')) {
+                $sortOrder = request()->get('sort');
+                if ($sortOrder == 'name_desc') {
+                    $birthdays = $birthdays->sortByDesc('name');
+                } else {
+                    $birthdays = $birthdays->sortBy('name');
+                }
+            }
         @endphp
     
         @if($birthdays->isEmpty())
@@ -85,7 +119,7 @@
                 @endphp
                 
                 @if($birthMonth == $currentMonth)
-                    <div class="happy-item">
+                    <div class="happy-item" data-jurusan="{{ $birthday->jurusan }}">
                         <h3>{{ $birthday->name }}</h3>
                         <p>{{ $birthday->jurusan }} {{ $birthday->angkatan }} | {{ \Carbon\Carbon::parse($birthday->tanggal_lahir)->format('F d') }}</p>
                     </div>
@@ -110,11 +144,5 @@
 </div>
 
 @include('loader')
-
-<script>
-    window.addEventListener('load', function() {
-        document.getElementById('loader').style.display = 'none';
-    });
-</script>
 
 @endsection

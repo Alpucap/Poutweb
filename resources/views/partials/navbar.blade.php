@@ -5,14 +5,14 @@
 <body>
     <nav>
         <a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
-        <a href="/renungan" class="{{ Request::is('renungan') ? 'active' : '' }}">Renungan</a>
+        <a href="/renungan" class="{{ Request::is('renungan') ? 'active' : '' }}">Reflections</a>
         @if (Auth::check())
             <a href="/profile" class="{{ Request::is('profile') ? 'active' : '' }}">
-                <img src="img\POUT.png" alt="Profile">
+                <img src="{{ asset('img/POUT.png') }}" alt="Profile">
             </a>
         @else
             <a href="/login" onclick="showalerts()" class="{{ Request::is('profile') ? 'active' : '' }}">
-                <img src="img\POUT.png" alt="Profile">
+                <img src="{{ asset('img/POUT.png') }}" alt="Profile">
             </a>
         @endif
         <a href="/servant" class="{{ Request::is('servant') ? 'active' : '' }}">Servant</a>

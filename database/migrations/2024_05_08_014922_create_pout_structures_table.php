@@ -6,22 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePoutStructuresTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('POUTStructure', function (Blueprint $table) {
+        Schema::create('pout_structures', function (Blueprint $table) {
             $table->id();
             $table->string('role');
             $table->string('name');
-            $table->string('photo');
             $table->string('major');
             $table->integer('batch');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('POUTStructure');
+        Schema::dropIfExists('pout_structures');
     }
 }
-

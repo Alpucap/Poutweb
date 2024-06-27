@@ -16,7 +16,7 @@ class POUTStructureController extends Controller
             DB::enableQueryLog();
 
             // Fetch structures ordered by role using raw SQL
-            $structures = DB::select("SELECT * FROM POUTStructure ORDER BY role ASC");
+            $structures = DB::select("SELECT * FROM pout_structures ORDER BY role ASC");
 
             // Sort fetched structures
             $sortedStructures = $this->sortStructures($structures);
