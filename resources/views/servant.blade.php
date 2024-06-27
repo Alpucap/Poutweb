@@ -17,7 +17,6 @@
                     <div class="member">
                         <h3>{{ $pj->name }}</h3>
                         <p>{{ $pj->major }} | {{ $pj->batch }}</p>
-                        <p>Serving as {{$pj->serving_as}}</p>
                     </div>
                 @endforeach
             </div>
@@ -31,7 +30,6 @@
                     <div class="member">
                         <h3>{{ $pd->name }}</h3>
                         <p>{{ $pd->major }} | {{ $pd->batch }}</p>
-                        <p>Serving as {{$pd->serving_as}}</p>
                     </div>
                 @endforeach
             </div>

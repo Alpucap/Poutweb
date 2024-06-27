@@ -37,8 +37,9 @@ body {
 
 .profile-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 20px auto;
     text-align: center;
+
 }
 
 .profile-picture {
@@ -55,11 +56,10 @@ body {
 
 .profile-email {
     font-size: 16px;
-    color: #666;
+    color: #adadad;
     margin-bottom: 20px;
 }
 
-/* Container untuk tombol-tombol */
 .profile-actions {
     display: flex;
     flex-direction: column;
@@ -67,7 +67,6 @@ body {
     margin-top: 20px;
 }
 
-/* Gaya untuk tombol-tombol */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -76,7 +75,7 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
-    margin-bottom: 10px; /* Menambahkan ruang di antara tombol-tombol */
+    margin-bottom: 15px; 
 }
 
 .btn-primary {
@@ -107,4 +106,56 @@ body {
 
 .btn-secondary:hover {
     background-color: #5a6268;
+}
+
+#editProfileForm {
+    display: none;
+    background-color: #ebeeec;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#editProfileForm label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color:#140a0a;
+}
+
+#editProfileForm input[type="text"],
+#editProfileForm input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ebeeec;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.text-danger {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn-admin {
+    background-color: #ffc107;
+    color: #ebeeec; 
+    border: none; 
+    padding: 10px 20px;
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-decoration: none;
+    display: inline-block; 
+}
+
+.btn-admin:hover {
+    background-color: #e0a800; 
 }

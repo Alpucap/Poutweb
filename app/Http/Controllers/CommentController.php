@@ -8,55 +8,65 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
+    // Function to filter inappropriate words
+    private function containsBadWords($comment)
+    {
+        $badWords = config('badwords.words');
+        foreach ($badWords as $badWord) {
+            if (stripos($comment, $badWord) !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function store(Request $request)
     {
-        // Validate the incoming request data
         $request->validate([
             'comment' => 'required|string|max:255',
         ]);
 
-        // Create a new comment instance and save it
+        if ($this->containsBadWords($request->comment)) {
+            return redirect()->back()->withErrors(['comment' => 'Your comment contains inappropriate language.']);
+        }
+
         $comment = new Comment();
         $comment->name = Auth::user()->name;  // Automatically assign the authenticated user's name
         $comment->comment = $request->comment;
         $comment->save();
 
-        // Redirect back with a success message
         return redirect()->back()->with('success', 'Comment posted successfully!');
     }
 
     public function edit($id)
     {
-        // Retrieve the comment by its ID
         $comment = Comment::findOrFail($id);
 
-        // Return view for editing the comment
         return view('comments.edit', compact('comment'));
     }
 
     public function update(Request $request, $id)
     {
-        // Validate the request data
         $validatedData = $request->validate([
             'comment' => 'required|string|max:255',
         ]);
 
-        // Find the comment by its ID
-        $comment = Comment::findOrFail($id);
+        if ($this->containsBadWords($validatedData['comment'])) {
+            return redirect()->back()->withErrors(['comment' => 'Your comment contains inappropriate language.']);
+        }
 
-        // Update the comment with the validated data
+        $comment = Comment::findOrFail($id);
         $comment->update($validatedData);
 
-        // Redirect back with success message
-        return back()->with('success', 'Comment updated successfully!');
+        return redirect()->back()->with('success', 'Comment updated successfully!');
     }
 
     public function destroy($id)
     {
-        // Find the comment by its ID and delete it
-        Comment::findOrFail($id)->delete();
+        $comment = Comment::findOrFail($id);
 
-        // Redirect back with success message
-        return back()->with('success', 'Comment deleted successfully!');
+        $comment->delete();
+
+        return redirect()->back()->with('success', 'Comment deleted successfully!');
     }
 }

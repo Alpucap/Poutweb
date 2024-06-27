@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 
 /* General Styles */
 * {
@@ -19,7 +20,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
+    margin: 5px 25px;
     padding: 0;
     height: 100%;
     scrollbar-width: none; 
@@ -33,49 +34,229 @@ body {
     color: #4682b4;
 }
 
-/*birthday*/
-.birthday-form {
-    max-width: 400px;
-    margin: 15px auto;
-    padding: 20px;
-    border: 1px solid #ebeeec;
-    border-radius: 5px;
-    background-color: #1e2129;
+h1{
+    font-family: 'Sacramento', cursive;
+    text-align: center;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: 2px;
 }
 
-.birthday-form h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 24px;
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
 }
 
-.birthday-form .form-group {
-    margin-bottom: 20px;
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
 }
 
-.birthday-form label {
-    display: block;
-    font-weight: bold;
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
 }
 
-.birthday-form input[type="text"],
-.birthday-form input[type="date"] {
+table {
     width: 100%;
-    padding: 8px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ebeeec;
+}
+
+table th {
+    background-color: #ebeeec;
+    color:#1e2129;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+form input[type=text],
+form input[type=date],
+form input[type=url],
+form button {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
     border: 1px solid #ebeeec;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-.birthday-form button {
-    background-color: #140a0a;
+form button {
+    background-color: #1e2129;
     color: #ebeeec;
-    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
 }
 
-.birthday-form button:hover {
-    background-color: #030202;
+form button:hover {
+    background-color: #101216;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+
+section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    form input[type=text],
+    form input[type=date],
+    form input[type=url],
+    form button {
+        width: 100%;
+    }
+}
+
+.edit-button {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #1e2129;
+    color: #ebeeec;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #101216;
+}
+
+
+.delete-button {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #d32f2f;
+    color: #ebeeec;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #b52828;
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 99; 
+    padding: 20px;
+    background-color: #1e2129; 
+    color: #ebeeec; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #ebeeec;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #0f1014; 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.modal-content {
+    background-color: #101216;
+    border: 2px solid #ebeeec;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    padding: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ebeeec;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: #d2d2d2;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content button[type="submit"] {
+    background-color: #d32f2f;
+    color: #ebeeec;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #b52828; 
+}
+
+.search-container {
+    margin-bottom: 10px;
+}
+
+.search-container input[type=text] {
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 16px;
+    border: 1px solid #ebeeec;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.search-container input[type=text]:focus {
+    outline: none;
+    border-color: #719ECE;
 }

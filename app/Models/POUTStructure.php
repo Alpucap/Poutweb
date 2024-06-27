@@ -9,7 +9,7 @@ class POUTStructure extends Model
 {
     use HasFactory;
 
-    protected $table = 'POUTStructure';
+    protected $table = 'pout_structures';
     protected $fillable = ['role', 'name', 'photo', 'major', 'batch'];
     
 }

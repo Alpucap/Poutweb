@@ -190,16 +190,28 @@ body {
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 8px;
-    background-color: #ebeeec;
+    color: #ebeeec;
+    border: 2px solid #ebeeec;
+    background-color: transparent;
 }
 
 .comment p {
     margin: 5px 0;
-    color:#140a0a;
+    color:#ebeeec;
 }
 
 .btn {
-    margin-right: 5px;
+    color: #ebeeec;
+    background-color: #1e2129;
+    border-radius: 4px;
+    border: none;
+    padding: 5px 10px;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+.btn:hover {
+    color: #1e2129;
+    background-color: #ebeeec;
+    transition: color 0.5s ease, background-color 0.5s ease;
 }
 
 .comment-form {
@@ -227,7 +239,7 @@ input[type="text"],
 textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ebeeec;
+    border: 2px solid #ebeeec;
     border-radius: 4px;
     font-size: 1rem;
 }

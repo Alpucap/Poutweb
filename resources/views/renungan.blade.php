@@ -4,41 +4,73 @@
 
 @section('content')
 <div class="Renungan">
-    <h1>Renungan</h1>
+    <h1>Reflections</h1>
     <div class="Renungan-box">
-        <div class="Renungan-items">
+        <div class="Renungan-items" id="renunganItemsContainer">
             <!-- Search input field -->
             <input type="text" id="searchInput" placeholder="Search Renungan items...">
-            @foreach($renunganItems as $item)
-                <a href="{{ $item->link }}">
+            <?php foreach($renunganItems as $item): ?>
+                <a href="<?php echo $item->link; ?>">
                     <div class="Renungan-item">
-                        <h2>{{ $item->title }}</h2>
-                        <p>{{ $item->description }}</p>
+                        <h2><?php echo $item->title; ?></h2>
+                        <p><?php echo $item->description; ?></p>
                     </div>
                 </a>
-            @endforeach
+            <?php endforeach; ?>
         </div>
         <div class="Renungan-News">
-            @foreach($newsItems as $news)
+            <?php foreach($newsItems as $news): ?>
                 <div class="Renungan-News-item">
-                    <img src="{{ $news->image }}" alt="{{ $news->title }}">
-                    <h3>{{ $news->title }}</h3>
-                    <p>{{ $news->description }}</p>
+                    <img src="<?php echo $news->image; ?>" alt="<?php echo $news->title; ?>">
+                    <h3><?php echo $news->title; ?></h3>
+                    <p><?php echo $news->description; ?></p>
                 </div>
-            @endforeach
+            <?php endforeach; ?>
         </div>
-    </div>
+    </div>    
+    <script>
+            document.getElementById('searchInput').addEventListener('keyup', function() {
+                var filter = this.value.toLowerCase();
+                var items = document.getElementById('renunganItemsContainer').getElementsByClassName('Renungan-item');
 
+                Array.prototype.forEach.call(items, function(item) {
+                    var title = item.getElementsByTagName('h2')[0].textContent.toLowerCase();
+
+                    if (title.includes(filter)) {
+                        item.parentElement.style.display = '';
+                    } else {
+                        item.parentElement.style.display = 'none';
+                    }
+                });
+            });
+    </script>
+
+    @if(Auth::check())
     <h1>Please Leave a Comment</h1>
-    <!-- Comment form -->
     <form action="{{ route('comments.store') }}" method="POST" class="comment-form">
         @csrf
         <div class="form-group">
             <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" required></textarea>
+            <textarea id="comment" name="comment" required>{{ old('comment') }}</textarea>
+            @if($errors->has('comment'))
+                <div class="error">{{ $errors->first('comment') }}</div>
+            @endif
         </div>
         <button type="submit" class="submit-button">Post Comment</button>
-    </form>    
+    </form>
+    @else
+    <h1>Please Login First</h1>
+    <form action="{{ route('comments.store') }}" method="POST" class="comment-form">
+        @csrf
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea id="comment" name="comment" required>{{ old('comment') }}</textarea>
+        </div>
+        <button type="submit" class="submit-button">Login</button>
+    </form>
+    @endif
+
+ 
     <!-- Display comments -->
     <div class="comments">
         @foreach($comments as $comment)
@@ -80,8 +112,28 @@
 @include('loader')
 
 <script>
-    window.addEventListener('load', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('loader').style.display = 'none';
+        
+        // JavaScript to handle edit comment functionality
+        document.querySelectorAll('.edit-comment').forEach(button => {
+            button.addEventListener('click', function() {
+                const commentId = this.dataset.id;
+                const commentText = document.querySelector(`.comment[data-id="${commentId}"] p:nth-of-type(2)`).textContent;
+                
+                document.getElementById('editCommentId').value = commentId;
+                document.getElementById('editComment').value = commentText;
+                
+                // Update form action URL dynamically
+                document.getElementById('editCommentForm').action = `/comments/${commentId}`;
+                
+                document.getElementById('editCommentModal').style.display = 'block';
+            });
+        });
+
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('editCommentModal').style.display = 'none';
+        });
     });
 </script>
 
