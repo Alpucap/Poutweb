@@ -78,6 +78,6 @@ Persekutuan Oikumene Universitas Tarumanagara merupakan UKM kristen yang ada di 
 1. Download/clone repository
 2. install extension php
 3. install pgadmin
-4. ketik pada terminal "composer install"
-5. ketik pada terminal "php artisan migrate"
-6. ketik pada terminal "php artisan serve"
+4. ketik pada terminal vsc "composer install"
+5. ketik pada terminal vsc "php artisan migrate"
+6. ketik pada terminal vsc "php artisan serve"
