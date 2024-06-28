@@ -64,3 +64,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Anggota Kelompok
+Hans Christian / 535220159
+Henokh Mikhael / 535220154
+Novandry Aprilian / 535220165
+
+## Website UKM Persekutuan Oikumene Universitas Tarumanagara
+Mitra : UKM PO Untar
+Persekutuan Oikumene Universitas Tarumanagara merupakan UKM kristen yang ada di Universitas Tarumanagara.
+
+## Panduan Instalasi
+1. Download/clone repository
+2. install extension php
+3. install pgadmin
+4. ketik pada terminal "composer install"
+5. ketik pada terminal "php artisan migrate"
+6. ketik pada terminal "php artisan serve"
