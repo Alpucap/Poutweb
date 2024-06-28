@@ -66,9 +66,9 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Anggota Kelompok
-Hans Christian / 535220159
-Henokh Mikhael / 535220154
-Novandry Aprilian / 535220165
+<li>Hans Christian Handoto / 535220159</li>
+<li>Henokh Mikhael Kritiantan / 535220154</li>
+<li>Novandry Aprilian / 535220165</li>
 
 ## Website UKM Persekutuan Oikumene Universitas Tarumanagara
 Mitra : UKM PO Untar
